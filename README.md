@@ -1,3 +1,6 @@
+原作者Li Ruisen（https://github.com/Leeboom7）
+在原作者基础上进行了修改，以使其能实现对Google学术、Web of Science、ScienceDirect等根绝关键词推送文献服务的订阅邮件总结，现有开源项目主要针对arXiv预发表网站进行跟踪总结，航空航天相关arXiv使用较少，故对原作者项目进行修改以满足自己学习科研使用。
+
 # 个人AI邮件总结助手 (Email Summary Bot)
 
 这是一个基于GitHub Actions的自动化工具，它能每日定时读取你指定的邮箱文件夹，使用**DeepSeek**的语言模型进行智能总结，并将一份邮件汇总报告发送到你的另一个邮箱。
