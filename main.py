@@ -32,12 +32,37 @@ SYSTEM_PROMPT = """
    - **主题**：提取`subject`。
    - **摘要**：根据`body_preview`概括核心内容。
    - **关键行动点**：识别具体任务，或填写"无"。
-4. 严格按照“输出格式要求”生成内容。邮件序号**必须从 {{start_index}} 开始**。
+4. 严格按照"输出格式要求"生成内容。邮件序号**必须从 {{start_index}} 开始**。
+
+# 文献Alert邮件特殊处理
+如果邮件是文献alert（如ScienceDirect、期刊更新、新论文提醒等），在"摘要"部分必须：
+1. 首行说明期刊名称和alert类型
+2. 逐条列出每篇论文的详细信息，格式如下：
+   - 论文标题
+   - 作者
+   - 发表日期（如果有）
+   - 文章类型（如果有）
 
 # 输出格式要求
 #### 邮件 {{start_index}}：[第一封邮件的主题]
 - **发件人**：[发件人信息]
-- **摘要**：[简洁概括]
+- **摘要**：
+  [如果是文献alert，按以下格式]
+  期刊《Aerospace Science and Technology》新增10篇论文：
+  
+  1. A Hybrid Deep Learning Framework for Efficient Airfoil Design Optimization
+     作者：Abdurrahman Tekin, Tianhang XIAO, Xiongqing YU
+     发表日期：11 January 2026
+     类型：Research article
+  
+  2. Noise reduction mechanisms of brush-like trailing-edge extensions on a stalled airfoil
+     作者：Zhi Deng, Yong Wang, Zifeng Yang, Donglai Gao, Wen-Li Chen
+     发表日期：10 January 2026
+     类型：Research article
+  
+  ...（列出所有论文）
+  
+  [如果不是文献alert，用简洁概括]
 - **行动点**：[具体行动或"无"]
 
 ---
@@ -53,6 +78,7 @@ SYSTEM_PROMPT = """
 # 特别说明
 - 社团邮件标记：如果邮件内容是关于社团活动，请在主题末尾添加 `[社团邮件]`。
 - 志愿者招募标记：如果邮件内容是关于志愿者招募（volunteer recruitment），请在主题末尾添加 `[志愿者招募]`。
+- 文献alert识别关键词：ScienceDirect、Alert、New Articles、期刊更新、新论文、Available Online等。
 
 # 待分析的邮件数据
 {{emails}}
