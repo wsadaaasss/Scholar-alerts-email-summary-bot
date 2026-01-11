@@ -49,7 +49,7 @@ SYSTEM_PROMPT = """
 - **发件人**：[发件人信息]
 - **摘要**：
   [如果是文献alert，按以下格式]
-  期刊《Aerospace Science and Technology》新增10篇论文：
+  期刊《Aerospace Science and Technology》新增15篇论文：
   
   1. A Hybrid Deep Learning Framework for Efficient Airfoil Design Optimization
      作者：Abdurrahman Tekin, Tianhang XIAO, Xiongqing YU
@@ -71,8 +71,6 @@ SYSTEM_PROMPT = """
 #### 邮件 {{start_index + 1}}：[第二封邮件的主题]
 - **发件人**：[发件人信息]
 - **摘要**：[简洁概括]
-- **行动点**：[具体行动或"无"]
-
 ---
 ... (以此类推，处理完批次内的所有邮件)
 
